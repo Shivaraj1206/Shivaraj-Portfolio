@@ -5,12 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shivaraj Chinthakindi | AI Python Developer</title>
     
+    <!-- Fonts and Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
     <script>
         tailwind.config = {
             theme: {
@@ -55,27 +58,18 @@
             }
         }
     </script>
+
     <style>
-        /* Custom utilities and scrollbar */
         body {
             background-color: #0f172a;
             color: #f8fafc;
             overflow-x: hidden;
         }
         
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0f172a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #475569;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
 
         .glass-nav {
             background: rgba(15, 23, 42, 0.7);
@@ -110,13 +104,11 @@
             transform: translateY(30px);
             transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
         }
-
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Timeline styles */
         .timeline-dot {
             box-shadow: 0 0 0 4px rgba(15, 23, 42, 1), 0 0 0 6px rgba(59, 130, 246, 0.5);
         }
@@ -133,13 +125,9 @@
             opacity: 1;
             pointer-events: auto;
         }
-        .chat-messages::-webkit-scrollbar {
-            width: 4px;
-        }
-        .chat-messages::-webkit-scrollbar-thumb {
-            background: rgba(96, 165, 250, 0.3);
-            border-radius: 4px;
-        }
+        .chat-messages::-webkit-scrollbar { width: 4px; }
+        .chat-messages::-webkit-scrollbar-thumb { background: rgba(96, 165, 250, 0.3); border-radius: 4px; }
+        
         .typing-indicator span {
             display: inline-block;
             width: 4px;
@@ -185,7 +173,6 @@
                         Contact Me
                     </a>
                 </div>
-                <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-slate-300 hover:text-white focus:outline-none">
                         <i class="fa-solid fa-bars text-2xl"></i>
@@ -224,7 +211,7 @@
                     </p>
                     
                     <div class="flex flex-wrap gap-4">
-                        <a href="#experience" class="px-8 py-3 rounded-full bg-brand-600 hover:bg-brand-500 text-white font-medium transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] flex items-center">
+                        <a href="#experience" class="px-8 py-3 rounded-full bg-brand-600 hover:bg-brand-500 text-white font-medium transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)] flex items-center">
                             View My Work <i class="fa-solid fa-arrow-right ml-2"></i>
                         </a>
                         <a href="https://linkedin.com" target="_blank" class="px-8 py-3 rounded-full bg-slate-800/50 hover:bg-slate-700/50 border border-slate-700 text-white font-medium transition-all flex items-center gap-2">
@@ -234,7 +221,6 @@
                 </div>
                 
                 <div class="order-1 lg:order-2 flex justify-center lg:justify-end animate-fade-in-up" style="animation-delay: 0.2s;">
-                    <!-- Profile Photo with Tech Accents -->
                     <div class="relative w-72 h-72 md:w-96 md:h-96">
                         <!-- Animated Rings -->
                         <div class="absolute inset-0 rounded-full border border-slate-700/50 animate-[spin_10s_linear_infinite]"></div>
@@ -246,12 +232,11 @@
                             <div class="w-48 h-48 rounded-full bg-gradient-to-br from-brand-500 to-accent-500 opacity-20 filter blur-xl animate-pulse"></div>
                             
                             <!-- Profile Image Container -->
-                            <div class="relative z-10 w-64 h-64 md:w-72 md:h-80 rounded-3xl overflow-hidden border-4 border-slate-700/50 shadow-[0_0_30px_rgba(59,130,246,0.3)]">
-                                <img src="./Photo.jpg" 
+                            <div class="relative z-10 w-64 h-80 md:w-72 md:h-96 rounded-3xl overflow-hidden border-4 border-slate-700/50 shadow-[0_0_30px_rgba(59,130,246,0.3)]">
+                                <img src="Photo.jpg" 
                                      onerror="this.onerror=null; this.src='https://placehold.co/400x500/1e293b/60a5fa?text=Photo+Not+Found';" 
                                      alt="Shivaraj Chinthakindi" 
-                                     class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
-                                <!-- Glass Overlay at the bottom of the photo -->
+                                     class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
                                 <div class="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-[#0f172a] to-transparent opacity-80"></div>
                             </div>
                         </div>
@@ -282,16 +267,12 @@
             
             <div class="glass-card rounded-3xl p-8 md:p-12 reveal relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-64 h-64 bg-brand-500/10 rounded-full filter blur-[80px]"></div>
-                
                 <div class="relative z-10 text-lg md:text-xl text-slate-300 leading-relaxed font-light space-y-6">
                     <p>
                         With over <strong class="text-white font-medium">3+ years of real-world experience</strong>, I specialize in bridging the gap between cutting-edge Artificial Intelligence and robust backend architecture. 
                     </p>
                     <p>
-                        My expertise lies in designing and deploying <strong class="text-brand-400 font-medium">Retrieval-Augmented Generation (RAG)</strong> solutions, LLM-driven automation, and high-throughput REST APIs using Python, FastAPI, and microservices. I thrive in cloud-native environments (AWS & Azure), delivering systems capable of supporting millions of records and thousands of daily AI requests.
-                    </p>
-                    <p>
-                        Whether it's the healthcare sector or retail domains, my goal is to improve accuracy, performance, and drive tangible business outcomes in production environments.
+                        My expertise lies in designing and deploying <strong class="text-brand-400 font-medium">Retrieval-Augmented Generation (RAG)</strong> solutions, LLM-driven automation, and high-throughput REST APIs using Python, FastAPI, and microservices. I thrive in cloud-native environments (AWS & Azure).
                     </p>
                 </div>
                 
@@ -326,7 +307,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- AI & Data -->
                 <div class="glass-card rounded-2xl p-6 reveal">
                     <div class="flex items-center gap-3 mb-6 border-b border-slate-700/50 pb-4">
                         <div class="w-10 h-10 rounded-lg bg-accent-500/20 flex items-center justify-center text-accent-400">
@@ -335,20 +315,16 @@
                         <h4 class="text-xl font-semibold text-white">AI / ML & Data</h4>
                     </div>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">Large Language Models (LLMs)</span>
+                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">LLMs</span>
                         <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">LangChain</span>
                         <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">Prompt Engineering</span>
                         <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">OpenAI APIs</span>
-                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">RAG</span>
-                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">NLP</span>
-                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">TensorFlow</span>
-                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">PyTorch</span>
-                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">Scikit-learn</span>
+                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">RAG & NLP</span>
+                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">TensorFlow & PyTorch</span>
                         <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">Pandas & NumPy</span>
                     </div>
                 </div>
 
-                <!-- Backend -->
                 <div class="glass-card rounded-2xl p-6 reveal" style="transition-delay: 0.1s;">
                     <div class="flex items-center gap-3 mb-6 border-b border-slate-700/50 pb-4">
                         <div class="w-10 h-10 rounded-lg bg-brand-500/20 flex items-center justify-center text-brand-400">
@@ -360,15 +336,12 @@
                         <span class="px-3 py-1 text-sm bg-brand-500/20 border border-brand-500/30 rounded-md text-white font-medium">Python (Advanced)</span>
                         <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">FastAPI</span>
                         <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">Django & DRF</span>
-                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">Flask</span>
                         <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">Microservices</span>
                         <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">RESTful APIs</span>
                         <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">OAuth2 & JWT</span>
-                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">PyTest</span>
                     </div>
                 </div>
 
-                <!-- Cloud & DevOps -->
                 <div class="glass-card rounded-2xl p-6 reveal" style="transition-delay: 0.2s;">
                     <div class="flex items-center gap-3 mb-6 border-b border-slate-700/50 pb-4">
                         <div class="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400">
@@ -377,18 +350,14 @@
                         <h4 class="text-xl font-semibold text-white">Cloud & DevOps</h4>
                     </div>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">AWS (EC2, S3, RDS, Lambda)</span>
+                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">AWS (EC2, S3, RDS)</span>
                         <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">Azure</span>
                         <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">Docker</span>
                         <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">Kubernetes</span>
-                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">CI/CD Pipelines</span>
-                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">GitHub Actions</span>
-                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">Jenkins</span>
-                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">Bash</span>
+                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">CI/CD & Jenkins</span>
                     </div>
                 </div>
 
-                <!-- DBs & Streaming -->
                 <div class="glass-card rounded-2xl p-6 reveal" style="transition-delay: 0.3s;">
                     <div class="flex items-center gap-3 mb-6 border-b border-slate-700/50 pb-4">
                         <div class="w-10 h-10 rounded-lg bg-orange-500/20 flex items-center justify-center text-orange-400">
@@ -397,12 +366,10 @@
                         <h4 class="text-xl font-semibold text-white">Databases & Streaming</h4>
                     </div>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">PostgreSQL</span>
-                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">MySQL</span>
+                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">PostgreSQL & MySQL</span>
                         <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">MongoDB</span>
                         <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">Redis</span>
                         <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">Apache Kafka</span>
-                        <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">RabbitMQ</span>
                         <span class="px-3 py-1 text-sm bg-slate-800 rounded-md border border-slate-700 text-slate-200">SQL</span>
                     </div>
                 </div>
@@ -419,8 +386,6 @@
             </div>
 
             <div class="relative border-l border-slate-700 ml-3 md:ml-6 space-y-12">
-                
-                <!-- Job 1 -->
                 <div class="relative pl-8 md:pl-10 reveal">
                     <div class="absolute w-4 h-4 bg-brand-500 rounded-full timeline-dot -left-[8.5px] top-1.5"></div>
                     <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 mb-2">
@@ -433,29 +398,24 @@
                         <ul class="space-y-3 text-slate-300 text-sm md:text-base">
                             <li class="flex items-start">
                                 <i class="fa-solid fa-check text-brand-500 mt-1 mr-3 text-xs"></i>
-                                <span>Engineered scalable Python backends for GenAI healthcare services, utilizing <strong class="text-white">LangChain-driven RAG</strong> to improve factual response accuracy by <span class="text-accent-400 font-bold bg-accent-500/10 px-1 rounded">32%</span>.</span>
+                                <span>Engineered Python backends for GenAI healthcare services using <strong class="text-white">LangChain-driven RAG</strong>, improving response accuracy by <span class="text-accent-400 font-bold bg-accent-500/10 px-1 rounded">32%</span>.</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fa-solid fa-check text-brand-500 mt-1 mr-3 text-xs"></i>
-                                <span>Developed <strong class="text-white">FastAPI microservices</strong> exposing LLM endpoints, handling <span class="text-accent-400 font-bold bg-accent-500/10 px-1 rounded">12K+ daily AI requests</span> with low latency under peak loads.</span>
+                                <span>Developed <strong class="text-white">FastAPI microservices</strong> handling <span class="text-accent-400 font-bold bg-accent-500/10 px-1 rounded">12K+ daily AI requests</span> with high availability.</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fa-solid fa-check text-brand-500 mt-1 mr-3 text-xs"></i>
-                                <span>Designed FAISS-backed semantic search pipelines scaling to <strong class="text-white">1M+ documents</strong> with sub-second retrieval.</span>
+                                <span>Designed FAISS-backed semantic pipelines scaling to <strong class="text-white">1M+ documents</strong>.</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fa-solid fa-check text-brand-500 mt-1 mr-3 text-xs"></i>
-                                <span>Optimized prompt engineering, reducing hallucinations and improving task-completion by <span class="text-accent-400 font-bold bg-accent-500/10 px-1 rounded">28%</span>.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa-solid fa-check text-brand-500 mt-1 mr-3 text-xs"></i>
-                                <span>Deployed containerized AI workloads (Docker) on AWS for highly available model serving in enterprise healthcare.</span>
+                                <span>Deployed containerized AI workloads (Docker) on AWS.</span>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Job 2 -->
                 <div class="relative pl-8 md:pl-10 reveal">
                     <div class="absolute w-4 h-4 bg-slate-600 rounded-full border-4 border-[#0f172a] -left-[8.5px] top-1.5 transition-colors duration-300 hover:bg-brand-400"></div>
                     <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4 mb-2">
@@ -468,28 +428,19 @@
                         <ul class="space-y-3 text-slate-300 text-sm md:text-base">
                             <li class="flex items-start">
                                 <i class="fa-solid fa-check text-brand-500 mt-1 mr-3 text-xs"></i>
-                                <span>Built Python microservices for core omnichannel commerce (catalog, inventory, orders) serving a large retail client.</span>
+                                <span>Built Python microservices for core omnichannel commerce serving a large retail client.</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fa-solid fa-check text-brand-500 mt-1 mr-3 text-xs"></i>
-                                <span>Implemented RESTful integrations, cutting cross-system data latency by <span class="text-brand-400 font-bold bg-brand-500/10 px-1 rounded">30%</span>.</span>
+                                <span>Optimized retail data pipelines handling <span class="text-brand-400 font-bold bg-brand-500/10 px-1 rounded">1M+ daily records</span>.</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fa-solid fa-check text-brand-500 mt-1 mr-3 text-xs"></i>
-                                <span>Optimized high-volume retail data pipelines handling <span class="text-brand-400 font-bold bg-brand-500/10 px-1 rounded">1M+ daily records</span>.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa-solid fa-check text-brand-500 mt-1 mr-3 text-xs"></i>
-                                <span>Orchestrated deployments on <strong class="text-white">Azure App Services</strong>, maintaining 99.9% uptime during peak sales.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fa-solid fa-check text-brand-500 mt-1 mr-3 text-xs"></i>
-                                <span>Contributed to an <span class="text-brand-400 font-bold bg-brand-500/10 px-1 rounded">18% increase</span> in digital conversions through faster API response times and validation automation (25% defect reduction).</span>
+                                <span>Orchestrated deployments on <strong class="text-white">Azure App Services</strong>, maintaining 99.9% uptime.</span>
                             </li>
                         </ul>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -498,28 +449,22 @@
     <section id="education" class="py-20 bg-slate-900/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                
-                <!-- Education -->
                 <div class="reveal">
                     <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
                         <i class="fa-solid fa-graduation-cap text-brand-500"></i> Education
                     </h3>
-                    <div class="space-y-6">
-                        <div class="glass-card p-6 rounded-2xl relative overflow-hidden group">
-                            <div class="absolute left-0 top-0 bottom-0 w-1 bg-brand-500 transition-all duration-300 group-hover:w-2"></div>
-                            <h4 class="text-lg font-bold text-white">Master of Computer Science</h4>
-                            <p class="text-slate-400 text-sm mt-1">Lewis University, Albuquerque, NM</p>
-                            <div class="mt-4 inline-block px-3 py-1 bg-slate-800 rounded border border-slate-700 text-xs font-mono text-brand-400">Class of 2025</div>
-                        </div>
+                    <div class="glass-card p-6 rounded-2xl relative overflow-hidden group">
+                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-brand-500 transition-all duration-300 group-hover:w-2"></div>
+                        <h4 class="text-lg font-bold text-white">Master of Computer Science</h4>
+                        <p class="text-slate-400 text-sm mt-1">Lewis University, Albuquerque, NM</p>
+                        <div class="mt-4 inline-block px-3 py-1 bg-slate-800 rounded border border-slate-700 text-xs font-mono text-brand-400">Class of 2025</div>
                     </div>
                 </div>
 
-                <!-- Certifications -->
                 <div class="reveal" style="transition-delay: 0.2s;">
                     <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
                         <i class="fa-solid fa-certificate text-accent-500"></i> Certifications
                     </h3>
-                    
                     <div class="glass-card p-6 rounded-2xl space-y-4">
                         <div class="flex items-center gap-4 p-3 hover:bg-slate-800/50 rounded-lg transition-colors border border-transparent hover:border-slate-700/50">
                             <div class="w-10 h-10 rounded bg-[#0668E1]/20 flex items-center justify-center text-[#0668E1]">
@@ -530,85 +475,50 @@
                                 <p class="text-sm text-slate-400">Meta</p>
                             </div>
                         </div>
-
-                        <div class="flex items-center gap-4 p-3 hover:bg-slate-800/50 rounded-lg transition-colors border border-transparent hover:border-slate-700/50">
-                            <div class="w-10 h-10 rounded bg-[#0056D2]/20 flex items-center justify-center text-[#0056D2]">
-                                <i class="fa-solid fa-c text-xl font-bold"></i>
-                            </div>
-                            <div>
-                                <h5 class="text-white font-medium">Python Developer Course</h5>
-                                <p class="text-sm text-slate-400">Coursera</p>
-                            </div>
-                        </div>
-
                         <div class="flex items-center gap-4 p-3 hover:bg-slate-800/50 rounded-lg transition-colors border border-transparent hover:border-slate-700/50">
                             <div class="w-10 h-10 rounded bg-white flex items-center justify-center text-slate-800">
                                 <i class="fa-brands fa-google text-xl text-[#4285F4]"></i>
                             </div>
                             <div>
                                 <h5 class="text-white font-medium">Google AI Professional Certificate</h5>
-                                <p class="text-xs text-slate-400 mt-1 line-clamp-2">
-                                    Fundamentals • Brainstorming & Planning • Research & Insights • Content Creation • Data Analysis • App Building
-                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-24 relative overflow-hidden">
-        <div class="absolute inset-0 bg-brand-900/20 clip-path-slant z-0"></div>
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="glass-card rounded-3xl p-8 md:p-12 text-center reveal border-brand-500/20">
                 <h2 class="text-3xl md:text-5xl font-bold mb-6">Let's Build the Future.</h2>
                 <p class="text-slate-300 mb-10 max-w-2xl mx-auto">
-                    Currently based in New Mexico and open to exciting opportunities in AI and Backend Development. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+                    Currently based in New Mexico and open to exciting opportunities in AI and Backend Development.
                 </p>
                 
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
-                    <button onclick="copyText('shivachinthakindi45@mail.com', 'email-btn')" id="email-btn" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 transition-all flex items-center justify-center gap-3 group relative overflow-hidden">
-                        <i class="fa-regular fa-envelope text-brand-400 group-hover:scale-110 transition-transform"></i>
+                    <button onclick="copyText('shivachinthakindi45@mail.com', 'email-btn')" id="email-btn" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 transition-all flex items-center justify-center gap-3">
+                        <i class="fa-regular fa-envelope text-brand-400"></i>
                         <span class="font-mono text-sm">shivachinthakindi45@mail.com</span>
-                        <div class="absolute inset-0 bg-brand-500/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                     </button>
-                    
-                    <button onclick="copyText('+15054530849', 'phone-btn')" id="phone-btn" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 transition-all flex items-center justify-center gap-3 group relative overflow-hidden">
-                        <i class="fa-solid fa-phone text-accent-400 group-hover:scale-110 transition-transform"></i>
+                    <button onclick="copyText('+15054530849', 'phone-btn')" id="phone-btn" class="w-full sm:w-auto px-6 py-4 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 transition-all flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-phone text-accent-400"></i>
                         <span class="font-mono text-sm">+1 505-453-0849</span>
-                        <div class="absolute inset-0 bg-accent-500/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                     </button>
                 </div>
-                
-                <!-- Message Box for copy notification -->
-                <div id="copy-msg" class="mt-4 text-brand-400 text-sm font-medium opacity-0 transition-opacity duration-300 h-5">
-                    Copied to clipboard!
-                </div>
+                <div id="copy-msg" class="mt-4 text-brand-400 text-sm font-medium opacity-0 transition-opacity duration-300 h-5">Copied to clipboard!</div>
             </div>
         </div>
     </section>
 
-    <footer class="border-t border-slate-800 py-8 bg-[#0b1121]">
-        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-slate-500 text-sm">© 2026 Shivaraj Chinthakindi. All rights reserved.</p>
-            <div class="flex space-x-6 text-slate-400">
-                <a href="https://linkedin.com" target="_blank" class="hover:text-brand-400 transition-colors"><i class="fa-brands fa-linkedin text-xl"></i></a>
-                <a href="#" class="hover:text-brand-400 transition-colors"><i class="fa-brands fa-github text-xl"></i></a>
-            </div>
-        </div>
-    </footer>
-
     <!-- AI Chatbot Widget -->
     <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-        <!-- Chat Window -->
         <div id="ai-chat-window" class="chat-window glass-card rounded-2xl w-[320px] sm:w-[380px] h-[500px] max-h-[70vh] mb-4 flex flex-col border border-brand-500/30 shadow-[0_0_40px_rgba(59,130,246,0.15)] overflow-hidden">
-            <!-- Header -->
             <div class="bg-slate-800/80 p-4 border-b border-slate-700/50 flex justify-between items-center backdrop-blur-md">
                 <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-full bg-brand-500/20 flex items-center justify-center text-brand-400 border border-brand-500/30 shadow-[0_0_10px_rgba(59,130,246,0.5)]">
+                    <div class="w-8 h-8 rounded-full bg-brand-500/20 flex items-center justify-center text-brand-400">
                         <i class="fa-solid fa-robot text-sm"></i>
                     </div>
                     <div>
@@ -621,142 +531,81 @@
                 </button>
             </div>
             
-            <!-- Messages Area -->
             <div id="chat-messages" class="chat-messages flex-1 overflow-y-auto p-4 space-y-4 bg-slate-900/40">
-                <!-- Greeting -->
                 <div class="flex items-start gap-2 max-w-[85%]">
-                    <div class="w-6 h-6 rounded-full bg-brand-500/20 flex-shrink-0 flex items-center justify-center text-brand-400 border border-brand-500/30 mt-1">
+                    <div class="w-6 h-6 rounded-full bg-brand-500/20 flex-shrink-0 flex items-center justify-center text-brand-400 mt-1">
                         <i class="fa-solid fa-robot text-[10px]"></i>
                     </div>
-                    <div class="bg-slate-800/80 border border-slate-700/50 rounded-2xl rounded-tl-sm px-4 py-2 text-sm text-slate-200 shadow-sm">
+                    <div class="bg-slate-800/80 border border-slate-700/50 rounded-2xl rounded-tl-sm px-4 py-2 text-sm text-slate-200">
                         Hi! I'm Shivaraj's AI assistant. Ask me anything about his experience, skills, or education!
                     </div>
                 </div>
             </div>
 
-            <!-- Typing Indicator (Hidden by default) -->
             <div id="typing-indicator" class="hidden px-10 py-2 mb-2">
                 <div class="bg-slate-800/50 border border-slate-700/30 rounded-full px-3 py-1.5 w-16 flex justify-center typing-indicator">
                     <span></span><span></span><span></span>
                 </div>
             </div>
 
-            <!-- Input Area -->
             <div class="p-3 bg-slate-800/80 border-t border-slate-700/50 backdrop-blur-md">
                 <form id="chat-form" class="relative flex items-center">
-                    <input type="text" id="chat-input" placeholder="Ask about his AI projects..." class="w-full bg-slate-900/50 border border-slate-600 rounded-full pl-4 pr-10 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 transition-all">
-                    <button type="submit" class="absolute right-1.5 w-8 h-8 rounded-full bg-brand-600 hover:bg-brand-500 text-white flex items-center justify-center transition-colors">
+                    <input type="text" id="chat-input" placeholder="Ask about his AI projects..." class="w-full bg-slate-900/50 border border-slate-600 rounded-full pl-4 pr-10 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-brand-500">
+                    <button type="submit" class="absolute right-1.5 w-8 h-8 rounded-full bg-brand-600 hover:bg-brand-500 text-white flex items-center justify-center">
                         <i class="fa-solid fa-paper-plane text-xs"></i>
                     </button>
                 </form>
             </div>
         </div>
 
-        <!-- Chat Toggle Button -->
-        <button id="chat-toggle-btn" class="w-14 h-14 rounded-full bg-brand-600 hover:bg-brand-500 text-white shadow-[0_0_20px_rgba(59,130,246,0.4)] hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] flex items-center justify-center transition-all duration-300 hover:scale-105 z-50">
-            <i class="fa-solid fa-message-bot text-xl"></i>
+        <button id="chat-toggle-btn" class="w-14 h-14 rounded-full bg-brand-600 hover:bg-brand-500 text-white shadow-[0_0_20px_rgba(59,130,246,0.4)] flex items-center justify-center transition-all hover:scale-105 z-50">
             <i class="fa-solid fa-robot text-xl"></i>
         </button>
     </div>
 
+    <!-- ALL JAVASCRIPT LOGIC MUST STAY INSIDE THIS SCRIPT TAG -->
     <script>
         // Copy to clipboard function
         function copyText(text, btnId) {
-            // Use modern clipboard API or fallback
             if (navigator.clipboard && window.isSecureContext) {
                 navigator.clipboard.writeText(text);
             } else {
-                // Fallback for iframes/unsecure context
                 let textArea = document.createElement("textarea");
                 textArea.value = text;
                 textArea.style.position = "fixed";
-                textArea.style.left = "-999999px";
-                textArea.style.top = "-999999px";
                 document.body.appendChild(textArea);
                 textArea.focus();
                 textArea.select();
-                try {
-                    document.execCommand('copy');
-                } catch (err) {
-                    console.error('Fallback: Oops, unable to copy', err);
-                }
+                try { document.execCommand('copy'); } catch (err) {}
                 textArea.remove();
             }
             
-            // Show message
             const msg = document.getElementById('copy-msg');
             msg.style.opacity = '1';
-            
-            // Icon feedback
-            const btn = document.getElementById(btnId);
-            const icon = btn.querySelector('i');
-            const originalClass = icon.className;
-            icon.className = 'fa-solid fa-check text-emerald-400';
-            
-            setTimeout(() => {
-                msg.style.opacity = '0';
-                icon.className = originalClass;
-            }, 2000);
+            setTimeout(() => { msg.style.opacity = '0'; }, 2000);
         }
 
-        // Mobile Menu Toggle
+        // Mobile Menu Logic
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const mobileIcon = mobileBtn.querySelector('i');
-
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            if (mobileMenu.classList.contains('hidden')) {
-                mobileIcon.classList.replace('fa-xmark', 'fa-bars');
-            } else {
-                mobileIcon.classList.replace('fa-bars', 'fa-xmark');
-            }
-        });
-
-        // Close mobile menu on click
+        mobileBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
         document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileIcon.classList.replace('fa-xmark', 'fa-bars');
-            });
+            link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); });
         });
 
-        // Scroll Animations (Intersection Observer)
+        // Scroll Reveal Animations
         const revealElements = document.querySelectorAll('.reveal');
-        
-        const revealCallback = (entries, observer) => {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Stop observing once revealed
+                    observer.unobserve(entry.target);
                 }
             });
-        };
+        }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+        revealElements.forEach(el => revealObserver.observe(el));
 
-        const revealOptions = {
-            threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
-        const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
-        
-        revealElements.forEach(el => {
-            revealObserver.observe(el);
-        });
-
-        // Navbar blur effect on scroll
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                navbar.classList.add('shadow-lg');
-                navbar.style.background = 'rgba(15, 23, 42, 0.85)';
-            } else {
-                navbar.classList.remove('shadow-lg');
-                navbar.style.background = 'rgba(15, 23, 42, 0.7)';
-            }
-        });
-
-        // AI Chatbot Logic
+        // Simulated AI Chatbot Logic (Safe for public GitHub hosting)
         const chatToggleBtn = document.getElementById('chat-toggle-btn');
         const closeChatBtn = document.getElementById('close-chat-btn');
         const chatWindow = document.getElementById('ai-chat-window');
@@ -765,131 +614,104 @@
         const chatMessages = document.getElementById('chat-messages');
         const typingIndicator = document.getElementById('typing-indicator');
 
-        // Toggle chat window
+        // --- GEMINI API KEY SETUP ---
+        // To make the AI fully dynamic, get a free key from: https://aistudio.google.com/app/apikey
+        // Replace "YOUR_API_KEY_HERE" with your actual key. If left blank, it safely falls back to keywords.
+        const GEMINI_API_KEY = "YOUR_API_KEY_HERE"; 
+
         chatToggleBtn.addEventListener('click', () => {
             chatWindow.classList.toggle('open');
-            if (chatWindow.classList.contains('open')) {
-                chatInput.focus();
-            }
+            if (chatWindow.classList.contains('open')) chatInput.focus();
         });
+        closeChatBtn.addEventListener('click', () => chatWindow.classList.remove('open'));
 
-        closeChatBtn.addEventListener('click', () => {
-            chatWindow.classList.remove('open');
-        });
-
-        // Chat History state for Gemini API
-        let chatHistory = [];
-        
-        // System prompt to ground the LLM
-        const systemInstruction = `You are the AI assistant for Shivaraj Chinthakindi, an AI Python Developer. 
-        Your goal is to answer questions about him to impress recruiters and hiring managers based ONLY on his portfolio. 
-        
-        Key Info:
-        - Role: AI Python Developer
-        - Experience: 3+ years in Healthcare and Retail domains.
-        - Optum-USA (Aug 2024 - Present): Built GenAI healthcare services. Used LangChain-driven RAG (improved accuracy 32%). Built FastAPI microservices handling 12K+ daily AI requests. Created FAISS-backed semantic search for 1M+ documents. Deployed on AWS via Docker.
-        - Infosys-India (Jan 2022 - July 2023): Built Python microservices for retail omnichannel commerce. Handled 1M+ daily records. Deployed on Azure App Services (99.9% uptime). 
-        - Education: Master of Computer Science from Lewis University (2025).
-        - Core Skills: Python (Advanced), FastAPI, GenAI, LangChain, RAG, AWS, Azure, Microservices, LLMs.
-        - Contact: Email is shivachinthakindi45@mail.com and Phone is +1 505-453-0849. Location is New Mexico.
-        
-        Rules:
-        - Be friendly, professional, concise, and helpful.
-        - Keep responses to 1-3 short paragraphs. Use bullet points if listing things.
-        - Always encourage the user to contact Shivaraj for more details.
-        - If asked a question not covered by this information (like personal hobbies or unrelated tech), politely state you only have information regarding his professional portfolio.`;
-
-        // Function to append a message to the UI
         function appendMessage(text, isUser) {
             const msgDiv = document.createElement('div');
             msgDiv.className = `flex items-start gap-2 max-w-[85%] ${isUser ? 'ml-auto flex-row-reverse' : ''} mb-4`;
             
             const avatar = isUser ? 
-                `<div class="w-6 h-6 rounded-full bg-slate-700 flex-shrink-0 flex items-center justify-center text-slate-300 mt-1 border border-slate-600"><i class="fa-solid fa-user text-[10px]"></i></div>` : 
-                `<div class="w-6 h-6 rounded-full bg-brand-500/20 flex-shrink-0 flex items-center justify-center text-brand-400 border border-brand-500/30 mt-1"><i class="fa-solid fa-robot text-[10px]"></i></div>`;
+                `<div class="w-6 h-6 rounded-full bg-slate-700 flex-shrink-0 flex items-center justify-center text-slate-300 mt-1"><i class="fa-solid fa-user text-[10px]"></i></div>` : 
+                `<div class="w-6 h-6 rounded-full bg-brand-500/20 flex-shrink-0 flex items-center justify-center text-brand-400 mt-1"><i class="fa-solid fa-robot text-[10px]"></i></div>`;
             
             const bubbleClasses = isUser ? 
                 `bg-brand-600 text-white rounded-2xl rounded-tr-sm px-4 py-2 text-sm shadow-md` : 
                 `bg-slate-800/80 border border-slate-700/50 rounded-2xl rounded-tl-sm px-4 py-2 text-sm text-slate-200 shadow-sm`;
             
-            // Basic markdown parsing for bold and line breaks
             const formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
-
-            msgDiv.innerHTML = `
-                ${avatar}
-                <div class="${bubbleClasses}">${formattedText}</div>
-            `;
-            
+            msgDiv.innerHTML = `${avatar}<div class="${bubbleClasses}">${formattedText}</div>`;
             chatMessages.appendChild(msgDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
-        // Handle form submit
+        // Keyword-based Smart Responses
+        function getBotResponse(input) {
+            const lowerInput = input.toLowerCase();
+            if (lowerInput.includes('hello') || lowerInput.includes('hi ') || lowerInput.includes('hey')) 
+                return "Hello! I can answer questions about Shivaraj's experience, skills, and education. What would you like to know?";
+            if (lowerInput.includes('experience') || lowerInput.includes('work') || lowerInput.includes('job')) 
+                return "Shivaraj has 3+ years of experience.\n\nHe is currently an AI Python Developer at **Optum-USA**, building GenAI healthcare services using LangChain and FastAPI.\n\nPreviously, he worked at **Infosys-India** building high-volume retail microservices on Azure.";
+            if (lowerInput.includes('optum') || lowerInput.includes('healthcare')) 
+                return "At Optum, Shivaraj builds GenAI healthcare services. He uses LangChain-driven RAG (which improved accuracy by 32%) and developed FastAPI microservices that handle 12K+ daily AI requests!";
+            if (lowerInput.includes('infosys') || lowerInput.includes('retail')) 
+                return "At Infosys, he built Python microservices for a large retail client, handling over 1M+ daily records. He deployed these on Azure App Services maintaining 99.9% uptime.";
+            if (lowerInput.includes('skill') || lowerInput.includes('tech') || lowerInput.includes('python')) 
+                return "His core stack includes:\n- **Languages:** Python (Advanced), SQL\n- **Backend:** FastAPI, Django, Microservices\n- **AI/ML:** LLMs, LangChain, RAG, NLP\n- **Cloud:** AWS, Azure, Docker";
+            if (lowerInput.includes('education') || lowerInput.includes('degree') || lowerInput.includes('study')) 
+                return "He holds a **Master of Computer Science** from Lewis University (Class of 2025). He also has professional certificates from Google, Meta, and Coursera in AI and Python.";
+            if (lowerInput.includes('contact') || lowerInput.includes('email') || lowerInput.includes('phone') || lowerInput.includes('hire')) 
+                return "You can reach him via email at **shivachinthakindi45@mail.com** or call him at **+1 505-453-0849**.";
+            
+            return "I'm a simple assistant based on his portfolio! Try asking me about his **skills**, his work at **Optum**, or his **education**.";
+        }
+
         chatForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const message = chatInput.value.trim();
             if (!message) return;
 
-            // 1. Show user message
             appendMessage(message, true);
             chatInput.value = '';
             
-            // 2. Add to history
-            chatHistory.push({
-                role: "user",
-                parts: [{ text: message }]
-            });
-
-            // 3. Show typing indicator
             typingIndicator.classList.remove('hidden');
             chatMessages.scrollTop = chatMessages.scrollHeight;
 
-            // 4. Call Gemini API
-            try {
-                const apiKey = ""; // API Key is injected by the environment
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
-                
-                const payload = {
-                    contents: chatHistory,
-                    systemInstruction: {
-                        parts: [{ text: systemInstruction }]
-                    }
-                };
+            // Safely fall back to smart keywords if no API key is provided
+            if (GEMINI_API_KEY === "YOUR_API_KEY_HERE" || !GEMINI_API_KEY) {
+                setTimeout(() => {
+                    typingIndicator.classList.add('hidden');
+                    appendMessage(getBotResponse(message), false);
+                }, 1000 + Math.random() * 1000);
+                return;
+            }
 
-                const response = await fetch(apiUrl, {
+            // Real AI Chatbot Logic using Gemini API
+            try {
+                const systemPrompt = "You are the AI assistant for Shivaraj Chinthakindi, an AI Python Developer. Answer questions about him based ONLY on his portfolio: 3+ years experience. Works at Optum-USA (Aug 2024-Present) building GenAI healthcare services using LangChain, RAG, FastAPI, AWS. Worked at Infosys-India (Jan 2022-July 2023) building retail microservices on Azure. Master of Computer Science from Lewis University (2025). Skills: Python, FastAPI, GenAI, RAG, AWS, SQL, Docker. Contact: shivachinthakindi45@mail.com, +1 505-453-0849. Keep answers short, friendly, and professional (1-2 paragraphs max).";
+                
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: message }] }],
+                        systemInstruction: { parts: [{ text: systemPrompt }] }
+                    })
                 });
 
-                if (!response.ok) throw new Error('Network response was not ok');
+                if (!response.ok) throw new Error('API Request Failed');
                 
-                const result = await response.json();
-                const botResponseText = result.candidates?.[0]?.content?.parts?.[0]?.text;
-
-                if (botResponseText) {
-                    // Hide typing indicator
-                    typingIndicator.classList.add('hidden');
-                    
-                    // Show bot response
-                    appendMessage(botResponseText, false);
-                    
-                    // Add bot response to history
-                    chatHistory.push({
-                        role: "model",
-                        parts: [{ text: botResponseText }]
-                    });
-                } else {
-                    throw new Error('Invalid response structure');
-                }
+                const data = await response.json();
+                const botResponse = data.candidates[0].content.parts[0].text;
+                
+                typingIndicator.classList.add('hidden');
+                appendMessage(botResponse, false);
 
             } catch (error) {
                 console.error("Chatbot Error:", error);
                 typingIndicator.classList.add('hidden');
-                appendMessage("I'm sorry, I'm having trouble connecting to my neural network right now. Please try again later or email Shivaraj directly!", false);
+                // Fallback to keyword bot if API fails (e.g., quota exceeded)
+                appendMessage(getBotResponse(message), false);
             }
         });
-
     </script>
 </body>
 </html>
