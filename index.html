@@ -31,7 +31,7 @@
                             card: '#1e293b'
                         },
                         accent: {
-                            500: '#8b5cf6', // Violet
+                            500: '#8b5cf6',
                             400: '#a78bfa'
                         }
                     },
@@ -56,26 +56,16 @@
         }
     </script>
     <style>
-        /* Custom utilities and scrollbar */
         body {
             background-color: #0f172a;
             color: #f8fafc;
             overflow-x: hidden;
         }
         
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0f172a;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #475569;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
 
         .glass-nav {
             background: rgba(15, 23, 42, 0.7);
@@ -110,18 +100,15 @@
             transform: translateY(30px);
             transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
         }
-
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Timeline styles */
         .timeline-dot {
             box-shadow: 0 0 0 4px rgba(15, 23, 42, 1), 0 0 0 6px rgba(59, 130, 246, 0.5);
         }
 
-        /* Chat Widget Styles */
         .chat-window {
             transform: translateY(20px) scale(0.95);
             opacity: 0;
@@ -133,13 +120,12 @@
             opacity: 1;
             pointer-events: auto;
         }
-        .chat-messages::-webkit-scrollbar {
-            width: 4px;
-        }
+        .chat-messages::-webkit-scrollbar { width: 4px; }
         .chat-messages::-webkit-scrollbar-thumb {
             background: rgba(96, 165, 250, 0.3);
             border-radius: 4px;
         }
+        
         .typing-indicator span {
             display: inline-block;
             width: 4px;
@@ -235,7 +221,7 @@
                 
                 <div class="order-1 lg:order-2 flex justify-center lg:justify-end animate-fade-in-up" style="animation-delay: 0.2s;">
                     <!-- Profile Photo with Tech Accents -->
-                    <div class="relative w-72 h-72 md:w-96 md:h-96">
+                    <div class="relative w-72 h-80 md:w-80 md:h-[420px]">
                         <!-- Animated Rings -->
                         <div class="absolute inset-0 rounded-full border border-slate-700/50 animate-[spin_10s_linear_infinite]"></div>
                         <div class="absolute inset-4 rounded-full border border-brand-500/30 border-dashed animate-[spin_15s_linear_infinite_reverse]"></div>
@@ -245,12 +231,13 @@
                         <div class="absolute inset-0 flex items-center justify-center">
                             <div class="w-48 h-48 rounded-full bg-gradient-to-br from-brand-500 to-accent-500 opacity-20 filter blur-xl animate-pulse"></div>
                             
-                            <!-- Profile Image Container -->
-                            <div class="relative z-10 w-64 h-64 md:w-72 md:h-80 rounded-3xl overflow-hidden border-4 border-slate-700/50 shadow-[0_0_30px_rgba(59,130,246,0.3)]">
-                                <img src="./Photo.jpg" 
+                            <!-- UPDATED PROFILE IMAGE CONTAINER (Exact 4:5 Ratio) -->
+                            <div class="relative z-10 w-64 md:w-80 aspect-[4/5] rounded-3xl overflow-hidden border-4 border-slate-700/50 shadow-[0_0_30px_rgba(59,130,246,0.3)] bg-slate-900">
+                                <img src="Photo.jpg" 
                                      onerror="this.onerror=null; this.src='https://placehold.co/400x500/1e293b/60a5fa?text=Photo+Not+Found';" 
                                      alt="Shivaraj Chinthakindi" 
-                                     class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+                                     class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" 
+                                     style="image-rendering: -webkit-optimize-contrast; image-rendering: high-quality; filter: none;">
                                 <!-- Glass Overlay at the bottom of the photo -->
                                 <div class="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-[#0f172a] to-transparent opacity-80"></div>
                             </div>
@@ -662,11 +649,9 @@
     <script>
         // Copy to clipboard function
         function copyText(text, btnId) {
-            // Use modern clipboard API or fallback
             if (navigator.clipboard && window.isSecureContext) {
                 navigator.clipboard.writeText(text);
             } else {
-                // Fallback for iframes/unsecure context
                 let textArea = document.createElement("textarea");
                 textArea.value = text;
                 textArea.style.position = "fixed";
@@ -675,19 +660,14 @@
                 document.body.appendChild(textArea);
                 textArea.focus();
                 textArea.select();
-                try {
-                    document.execCommand('copy');
-                } catch (err) {
-                    console.error('Fallback: Oops, unable to copy', err);
-                }
+                try { document.execCommand('copy'); } 
+                catch (err) { console.error('Fallback: Oops, unable to copy', err); }
                 textArea.remove();
             }
             
-            // Show message
             const msg = document.getElementById('copy-msg');
             msg.style.opacity = '1';
             
-            // Icon feedback
             const btn = document.getElementById(btnId);
             const icon = btn.querySelector('i');
             const originalClass = icon.className;
@@ -713,7 +693,6 @@
             }
         });
 
-        // Close mobile menu on click
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
@@ -721,30 +700,22 @@
             });
         });
 
-        // Scroll Animations (Intersection Observer)
+        // Scroll Animations
         const revealElements = document.querySelectorAll('.reveal');
-        
         const revealCallback = (entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Stop observing once revealed
+                    observer.unobserve(entry.target);
                 }
             });
         };
 
-        const revealOptions = {
-            threshold: 0.15,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
+        const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
         const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
-        
-        revealElements.forEach(el => {
-            revealObserver.observe(el);
-        });
+        revealElements.forEach(el => revealObserver.observe(el));
 
-        // Navbar blur effect on scroll
+        // Navbar blur
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 20) {
@@ -756,7 +727,7 @@
             }
         });
 
-        // AI Chatbot Logic
+        // UPDATED AI Chatbot Logic (Safe Fallback Version)
         const chatToggleBtn = document.getElementById('chat-toggle-btn');
         const closeChatBtn = document.getElementById('close-chat-btn');
         const chatWindow = document.getElementById('ai-chat-window');
@@ -765,41 +736,15 @@
         const chatMessages = document.getElementById('chat-messages');
         const typingIndicator = document.getElementById('typing-indicator');
 
-        // Toggle chat window
         chatToggleBtn.addEventListener('click', () => {
             chatWindow.classList.toggle('open');
-            if (chatWindow.classList.contains('open')) {
-                chatInput.focus();
-            }
+            if (chatWindow.classList.contains('open')) chatInput.focus();
         });
 
         closeChatBtn.addEventListener('click', () => {
             chatWindow.classList.remove('open');
         });
 
-        // Chat History state for Gemini API
-        let chatHistory = [];
-        
-        // System prompt to ground the LLM
-        const systemInstruction = `You are the AI assistant for Shivaraj Chinthakindi, an AI Python Developer. 
-        Your goal is to answer questions about him to impress recruiters and hiring managers based ONLY on his portfolio. 
-        
-        Key Info:
-        - Role: AI Python Developer
-        - Experience: 3+ years in Healthcare and Retail domains.
-        - Optum-USA (Aug 2024 - Present): Built GenAI healthcare services. Used LangChain-driven RAG (improved accuracy 32%). Built FastAPI microservices handling 12K+ daily AI requests. Created FAISS-backed semantic search for 1M+ documents. Deployed on AWS via Docker.
-        - Infosys-India (Jan 2022 - July 2023): Built Python microservices for retail omnichannel commerce. Handled 1M+ daily records. Deployed on Azure App Services (99.9% uptime). 
-        - Education: Master of Computer Science from Lewis University (2025).
-        - Core Skills: Python (Advanced), FastAPI, GenAI, LangChain, RAG, AWS, Azure, Microservices, LLMs.
-        - Contact: Email is shivachinthakindi45@mail.com and Phone is +1 505-453-0849. Location is New Mexico.
-        
-        Rules:
-        - Be friendly, professional, concise, and helpful.
-        - Keep responses to 1-3 short paragraphs. Use bullet points if listing things.
-        - Always encourage the user to contact Shivaraj for more details.
-        - If asked a question not covered by this information (like personal hobbies or unrelated tech), politely state you only have information regarding his professional portfolio.`;
-
-        // Function to append a message to the UI
         function appendMessage(text, isUser) {
             const msgDiv = document.createElement('div');
             msgDiv.className = `flex items-start gap-2 max-w-[85%] ${isUser ? 'ml-auto flex-row-reverse' : ''} mb-4`;
@@ -810,10 +755,10 @@
             
             const bubbleClasses = isUser ? 
                 `bg-brand-600 text-white rounded-2xl rounded-tr-sm px-4 py-2 text-sm shadow-md` : 
-                `bg-slate-800/80 border border-slate-700/50 rounded-2xl rounded-tl-sm px-4 py-2 text-sm text-slate-200 shadow-sm`;
+                `bg-slate-800/80 border border-slate-700/50 rounded-2xl rounded-tl-sm px-4 py-2 text-sm text-slate-200 shadow-sm leading-relaxed`;
             
-            // Basic markdown parsing for bold and line breaks
-            const formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+            // Format bold tags
+            const formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
             msgDiv.innerHTML = `
                 ${avatar}
@@ -824,72 +769,58 @@
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
-        // Handle form submit
-        chatForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const message = chatInput.value.trim();
-            if (!message) return;
+        // Custom Keyword-Based Response Logic
+        function getBotResponse(input) {
+            const lowerInput = input.toLowerCase();
+            
+            if (lowerInput.includes('hello') || lowerInput.includes('hi ') || lowerInput.includes('hey')) {
+                return "Hi! I'm Shivaraj's AI assistant. Ask me anything about his experience, skills, or education!";
+            }
+            
+            // SKILLS RESPONSE
+            if (lowerInput.includes('skill') || lowerInput.includes('tech') || lowerInput.includes('stack')) {
+                return "Shivaraj's technical expertise is centered on the following areas:<br><br>• **AI & Machine Learning:** Generative AI, RAG, LangChain, LLMs, and FAISS-backed semantic search.<br>• **Backend Development:** Advanced Python and FastAPI for building high-concurrency microservices.<br>• **Cloud & DevOps:** AWS, Azure, Docker, and CI/CD best practices.<br><br>Would you like to know about his work experience?";
+            }
 
-            // 1. Show user message
-            appendMessage(message, true);
+            // EXPERIENCE RESPONSE
+            if (lowerInput.includes('experience') || lowerInput.includes('work') || lowerInput.includes('job') || lowerInput.includes('optum')) {
+                return "Shivaraj has over 3 years of experience specializing in scalable AI-driven solutions:<br><br>• **Optum-USA:** Built GenAI healthcare services using LangChain-driven RAG, improving accuracy by 32% and handling 12K+ daily API requests.<br>• **Infosys-India:** Developed Python microservices for a large retail client, optimizing data pipelines handling 1M+ daily records.<br><br>Would you like to hear about his education?";
+            }
+
+            // EDUCATION RESPONSE
+            if (lowerInput.includes('education') || lowerInput.includes('degree') || lowerInput.includes('university') || lowerInput.includes('master')) {
+                return "Shivaraj holds a **Master of Computer Science** from Lewis University (Class of 2025). He also holds professional certifications from Meta, Coursera, and Google in AI and Python Development.";
+            }
+            
+            // CONTACT RESPONSE
+            if (lowerInput.includes('contact') || lowerInput.includes('email') || lowerInput.includes('phone') || lowerInput.includes('reach')) {
+                return "You can reach Shivaraj directly via email at **shivachinthakindi45@mail.com** or call him at **+1 505-453-0849**.";
+            }
+            
+            // Default catch-all response
+            return "I am an AI assistant programmed to highlight Shivaraj's professional background. Try asking me about his **skills**, **experience**, or **education**. To contact him directly, email shivachinthakindi45@mail.com.";
+        }
+
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const userText = chatInput.value.trim();
+            if (!userText) return;
+
+            // Show user message
+            appendMessage(userText, true);
             chatInput.value = '';
             
-            // 2. Add to history
-            chatHistory.push({
-                role: "user",
-                parts: [{ text: message }]
-            });
-
-            // 3. Show typing indicator
+            // Show typing indicator
             typingIndicator.classList.remove('hidden');
             chatMessages.scrollTop = chatMessages.scrollHeight;
 
-            // 4. Call Gemini API
-            try {
-                const apiKey = ""; // API Key is injected by the environment
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
-                
-                const payload = {
-                    contents: chatHistory,
-                    systemInstruction: {
-                        parts: [{ text: systemInstruction }]
-                    }
-                };
-
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                if (!response.ok) throw new Error('Network response was not ok');
-                
-                const result = await response.json();
-                const botResponseText = result.candidates?.[0]?.content?.parts?.[0]?.text;
-
-                if (botResponseText) {
-                    // Hide typing indicator
-                    typingIndicator.classList.add('hidden');
-                    
-                    // Show bot response
-                    appendMessage(botResponseText, false);
-                    
-                    // Add bot response to history
-                    chatHistory.push({
-                        role: "model",
-                        parts: [{ text: botResponseText }]
-                    });
-                } else {
-                    throw new Error('Invalid response structure');
-                }
-
-            } catch (error) {
-                console.error("Chatbot Error:", error);
+            // Simulate AI thinking delay
+            setTimeout(() => {
                 typingIndicator.classList.add('hidden');
-                appendMessage("I'm sorry, I'm having trouble connecting to my neural network right now. Please try again later or email Shivaraj directly!", false);
-            }
+                const responseText = getBotResponse(userText);
+                appendMessage(responseText, false);
+            }, 600);
         });
-
     </script>
 </body>
 </html>
