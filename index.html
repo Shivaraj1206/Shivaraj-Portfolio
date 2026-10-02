@@ -21,10 +21,55 @@
         }
     </script>
     <style>
-        body { background-color: #0f172a; color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-        .glass-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .gradient-text { background: linear-gradient(to right, #60a5fa, #a78bfa); -webkit-background-clip: text; color: transparent; }
-        .chatbot-window { transition: all 0.3s ease-in-out; transform-origin: bottom right; }
+        body { 
+            background-color: #0f172a; 
+            color: #f8fafc; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+        }
+        
+        /* Glassmorphism & Dynamic Cursor Glow Effect */
+        .glass-card { 
+            background: rgba(30, 41, 59, 0.7); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .glass-card::before {
+            content: "";
+            position: absolute;
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0;
+            background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(96, 165, 250, 0.15), transparent 40%);
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Ensure content stays above the glow */
+        .card-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        .gradient-text { 
+            background: linear-gradient(to right, #60a5fa, #a78bfa); 
+            -webkit-background-clip: text; 
+            color: transparent; 
+        }
+        
+        .chatbot-window { 
+            transition: all 0.3s ease-in-out; 
+            transform-origin: bottom right; 
+        }
         .chatbot-hidden { transform: scale(0); opacity: 0; pointer-events: none; }
         .chatbot-visible { transform: scale(1); opacity: 1; pointer-events: auto; }
     </style>
@@ -32,8 +77,8 @@
 <body class="antialiased selection:bg-brand-500 selection:text-white">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-card border-b-0 border-white/10">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <nav class="fixed w-full z-50 glass-card border-b-0 border-white/10" style="backdrop-filter: blur(12px);">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center card-content">
             <a href="#" class="text-2xl font-bold tracking-tighter gradient-text">SC.</a>
             <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-300">
                 <a href="#about" class="hover:text-white transition-colors">About</a>
@@ -48,10 +93,9 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden interactive-section">
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="flex flex-col-reverse lg:flex-row items-center gap-16">
-                
                 <!-- Text Content -->
                 <div class="w-full lg:w-3/5 text-center lg:text-left">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-500/30 bg-brand-500/10 text-brand-400 text-xs font-semibold tracking-wide mb-6">
@@ -63,14 +107,16 @@
                         <span class="gradient-text">Shivaraj Chinthakindi.</span>
                     </h1>
                     <p class="text-lg md:text-xl text-slate-400 mb-10 max-w-2xl leading-relaxed">
-                        Applied AI Engineer with 3+ years of hands-on experience delivering enterprise technology solutions across healthcare and retail environments. Specializing in GenAI, RAG pipelines, and Agentic Workflows.
+                        Applied AI Engineer with extensive hands-on experience designing and deploying enterprise AI solutions, RAG pipelines, and highly scalable backend microservices.
                     </p>
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                         <a href="#experience" class="w-full sm:w-auto px-8 py-3 rounded-full bg-brand-600 text-white font-medium hover:bg-brand-500 transition-all shadow-[0_0_20px_rgba(59,130,246,0.4)]">
-                            View My Work &rarr;
+                            View Professional Experience &rarr;
                         </a>
                         <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" class="w-full sm:w-auto px-8 py-3 rounded-full glass-card text-white font-medium hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
-                            <i class="fa-brands fa-linkedin text-brand-400"></i> LinkedIn
+                            <span class="card-content flex items-center gap-2">
+                                <i class="fa-brands fa-linkedin text-brand-400"></i> LinkedIn
+                            </span>
                         </a>
                     </div>
                 </div>
@@ -84,7 +130,6 @@
                         
                         <div class="absolute inset-0 flex items-center justify-center">
                             <div class="w-56 h-56 rounded-full bg-gradient-to-br from-brand-500 to-accent-500 opacity-20 filter blur-xl animate-pulse"></div>
-                            
                             <div class="relative z-10 w-72 md:w-96 aspect-[4/5] rounded-3xl overflow-hidden border-4 border-slate-700/50 shadow-[0_0_30px_rgba(59,130,246,0.3)] bg-slate-900">
                                 <img src="Photo.jpg?v=4" onerror="this.onerror=null; this.src='https://placehold.co/400x500/1e293b/60a5fa?text=Photo+Not+Found';" alt="Shivaraj Chinthakindi" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500">
                                 <div class="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-[#0f172a] to-transparent opacity-80"></div>
@@ -98,58 +143,64 @@
 
     <!-- Skills Section -->
     <section id="skills" class="py-20 border-t border-slate-800 bg-[#0b1121]">
-        <div class="max-w-6xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 text-center text-slate-200">Technical <span class="text-brand-400">Expertise</span></h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- AI & ML -->
-                <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-12 h-12 rounded-lg bg-accent-500/20 flex items-center justify-center mb-6 border border-accent-500/30">
-                        <i class="fa-solid fa-brain text-2xl text-accent-400"></i>
+                <div class="glass-card p-8 rounded-2xl">
+                    <div class="card-content">
+                        <div class="w-12 h-12 rounded-lg bg-accent-500/20 flex items-center justify-center mb-6 border border-accent-500/30">
+                            <i class="fa-solid fa-brain text-2xl text-accent-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-white">Applied AI & ML</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            Designing intelligent automation, agentic workflows, and semantic search solutions.
+                        </p>
+                        <ul class="text-slate-300 text-sm space-y-2">
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> LLMs & GenAI</li>
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> RAG & Embeddings (FAISS)</li>
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> LangChain & LangGraph</li>
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Prompt Engineering</li>
+                        </ul>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-white">Applied AI & ML</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                        Designing intelligent automation and semantic search solutions.
-                    </p>
-                    <ul class="text-slate-300 text-sm space-y-2">
-                        <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> LLMs & GenAI</li>
-                        <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> RAG & Embeddings</li>
-                        <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> LangChain & LangGraph</li>
-                        <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> FAISS & Agentic Workflows</li>
-                    </ul>
                 </div>
                 
                 <!-- Backend -->
-                <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-12 h-12 rounded-lg bg-brand-500/20 flex items-center justify-center mb-6 border border-brand-500/30">
-                        <i class="fa-solid fa-code text-2xl text-brand-400"></i>
+                <div class="glass-card p-8 rounded-2xl">
+                    <div class="card-content">
+                        <div class="w-12 h-12 rounded-lg bg-brand-500/20 flex items-center justify-center mb-6 border border-brand-500/30">
+                            <i class="fa-solid fa-code text-2xl text-brand-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-white">Backend & APIs</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            Architecting scalable microservices, async workflows, and database integration.
+                        </p>
+                        <ul class="text-slate-300 text-sm space-y-2">
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Python, Django & FastAPI</li>
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Flask & Swagger</li>
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> MySQL, SQLAlchemy & Redis</li>
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Celery & RabbitMQ</li>
+                        </ul>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-white">Backend & APIs</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                        Architecting scalable microservices and distributed processing.
-                    </p>
-                    <ul class="text-slate-300 text-sm space-y-2">
-                        <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Python & SQL</li>
-                        <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> FastAPI & Django</li>
-                        <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> AsyncIO & Celery</li>
-                        <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> RabbitMQ & Redis</li>
-                    </ul>
                 </div>
 
                 <!-- Cloud & DevOps -->
-                <div class="glass-card p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
-                    <div class="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center mb-6 border border-blue-500/30">
-                        <i class="fa-solid fa-cloud text-2xl text-blue-400"></i>
+                <div class="glass-card p-8 rounded-2xl">
+                    <div class="card-content">
+                        <div class="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center mb-6 border border-blue-500/30">
+                            <i class="fa-solid fa-cloud text-2xl text-blue-400"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-4 text-white">Cloud & DevOps</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            Deploying and managing reliable enterprise infrastructure and CI/CD pipelines.
+                        </p>
+                        <ul class="text-slate-300 text-sm space-y-2">
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Google Cloud (GCP)</li>
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Vertex AI</li>
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Docker & Kubernetes</li>
+                            <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Git, Jenkins & PyTest</li>
+                        </ul>
                     </div>
-                    <h3 class="text-xl font-semibold mb-4 text-white">Cloud & DevOps</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                        Deploying and managing reliable enterprise infrastructure.
-                    </p>
-                    <ul class="text-slate-300 text-sm space-y-2">
-                        <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Google Cloud (GCP)</li>
-                        <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Vertex AI</li>
-                        <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Docker & Kubernetes</li>
-                        <li><i class="fa-solid fa-check text-brand-500 mr-2"></i> Jenkins & CI/CD</li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -157,7 +208,7 @@
 
     <!-- Experience Section -->
     <section id="experience" class="py-20">
-        <div class="max-w-4xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 text-center text-slate-200">Professional <span class="text-brand-400">Experience</span></h2>
             
             <div class="relative border-l border-slate-700 ml-3 md:ml-0 md:space-y-12 space-y-8">
@@ -166,19 +217,25 @@
                     <div class="md:hidden absolute w-4 h-4 bg-brand-500 rounded-full -left-2 top-1.5 border-4 border-[#0f172a]"></div>
                     <div class="glass-card p-8 rounded-2xl relative">
                         <div class="hidden md:block absolute w-4 h-4 bg-brand-500 rounded-full -left-[2.15rem] top-10 border-4 border-[#0f172a]"></div>
-                        <div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
-                            <div>
-                                <h3 class="text-xl font-bold text-white">Applied AI Engineer</h3>
-                                <p class="text-brand-400 font-medium">McKesson &bull; Texas</p>
+                        <div class="card-content">
+                            <div class="flex flex-col md:flex-row justify-between md:items-center mb-6 gap-2">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white">Applied AI Engineer</h3>
+                                    <p class="text-brand-400 font-medium text-lg mt-1">McKesson &bull; Texas</p>
+                                </div>
+                                <span class="text-slate-400 text-sm bg-slate-800/50 px-4 py-1.5 rounded-full border border-slate-700 w-fit">Sep 2024 - Present</span>
                             </div>
-                            <span class="text-slate-400 text-sm bg-slate-800/50 px-3 py-1 rounded-full border border-slate-700 w-fit">Sep 2024 - Present</span>
+                            <ul class="list-none space-y-4 text-slate-300 text-[15px] leading-relaxed">
+                                <li class="flex items-start"><span class="text-brand-500 mr-3 mt-1 text-lg">&bull;</span> Developed Python and FastAPI backend services for healthcare knowledge applications, building reusable APIs for document retrieval, business logic, and AI-assisted workflows that supported 5+ internal use cases.</li>
+                                <li class="flex items-start"><span class="text-brand-500 mr-3 mt-1 text-lg">&bull;</span> Integrated LLMs and RAG into enterprise applications to retrieve approved healthcare policies, claims guidance, and clinical documentation, reducing manual information lookup time by 25%.</li>
+                                <li class="flex items-start"><span class="text-brand-500 mr-3 mt-1 text-lg">&bull;</span> Implemented Embeddings and FAISS for semantic indexing and similarity-based retrieval of healthcare documents, improving access to relevant provider, claims, and operational information.</li>
+                                <li class="flex items-start"><span class="text-brand-500 mr-3 mt-1 text-lg">&bull;</span> Designed REST API and FHIR integration workflows to exchange structured healthcare information between application services, improving interoperability across clinical and provider-facing workflows.</li>
+                                <li class="flex items-start"><span class="text-brand-500 mr-3 mt-1 text-lg">&bull;</span> Applied HIPAA and PHI data-handling practices across AI application workflows, implementing access controls, secure data processing, and protected handling of sensitive healthcare information to support compliant enterprise deployments.</li>
+                                <li class="flex items-start"><span class="text-brand-500 mr-3 mt-1 text-lg">&bull;</span> Applied LangChain and Prompt Engineering to structure contextual inputs and standardize AI responses for healthcare questions, improving response consistency across employee knowledge-assistance workflows.</li>
+                                <li class="flex items-start"><span class="text-brand-500 mr-3 mt-1 text-lg">&bull;</span> Developed LangGraph-based Agentic Workflows to coordinate multi-step retrieval, reasoning, tool invocation, and response generation, enabling AI agents to handle complex healthcare knowledge tasks with controlled workflow execution.</li>
+                                <li class="flex items-start"><span class="text-brand-500 mr-3 mt-1 text-lg">&bull;</span> Implemented GCP and Vertex AI components to support scalable deployment of AI-enabled application services, strengthening the reliability and maintainability of production healthcare solutions.</li>
+                            </ul>
                         </div>
-                        <ul class="list-none space-y-3 text-slate-300 text-sm">
-                            <li class="flex items-start"><span class="text-brand-500 mr-2 mt-0.5">&bull;</span> Developed Python and FastAPI backend services for healthcare knowledge applications, supporting 5+ internal use cases.</li>
-                            <li class="flex items-start"><span class="text-brand-500 mr-2 mt-0.5">&bull;</span> Integrated LLMs and RAG to retrieve approved healthcare policies and clinical documentation, reducing manual lookup by 25%.</li>
-                            <li class="flex items-start"><span class="text-brand-500 mr-2 mt-0.5">&bull;</span> Developed LangGraph-based Agentic Workflows to coordinate multi-step retrieval, reasoning, and response generation.</li>
-                            <li class="flex items-start"><span class="text-brand-500 mr-2 mt-0.5">&bull;</span> Implemented Embeddings and FAISS for semantic indexing and similarity-based retrieval of healthcare documents.</li>
-                        </ul>
                     </div>
                 </div>
 
@@ -187,19 +244,25 @@
                     <div class="md:hidden absolute w-4 h-4 bg-slate-600 rounded-full -left-2 top-1.5 border-4 border-[#0f172a]"></div>
                     <div class="glass-card p-8 rounded-2xl relative">
                         <div class="hidden md:block absolute w-4 h-4 bg-slate-600 rounded-full -left-[2.15rem] top-10 border-4 border-[#0f172a]"></div>
-                        <div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-2">
-                            <div>
-                                <h3 class="text-xl font-bold text-white">Software Engineer</h3>
-                                <p class="text-brand-400 font-medium">Capgemini &bull; India</p>
+                        <div class="card-content">
+                            <div class="flex flex-col md:flex-row justify-between md:items-center mb-6 gap-2">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white">Software Engineer <span class="text-lg font-normal text-slate-400">(Python and Microservices)</span></h3>
+                                    <p class="text-brand-400 font-medium text-lg mt-1">Capgemini &bull; India</p>
+                                </div>
+                                <span class="text-slate-400 text-sm bg-slate-800/50 px-4 py-1.5 rounded-full border border-slate-700 w-fit">Jan 2022 - Jul 2023</span>
                             </div>
-                            <span class="text-slate-400 text-sm bg-slate-800/50 px-3 py-1 rounded-full border border-slate-700 w-fit">Jan 2022 - Jul 2023</span>
+                            <ul class="list-none space-y-4 text-slate-300 text-[15px] leading-relaxed">
+                                <li class="flex items-start"><span class="text-brand-500 mr-3 mt-1 text-lg">&bull;</span> Engineered retail application modules with Django and Django ORM, developing product catalog, inventory, supplier, and store-management functionality that supported 5+ core retail workflows.</li>
+                                <li class="flex items-start"><span class="text-brand-500 mr-3 mt-1 text-lg">&bull;</span> Developed modular web services using Flask and Swagger, implementing inventory availability, product updates, stock transfers, and pricing operations that reduced manual inventory coordination by 30%.</li>
+                                <li class="flex items-start"><span class="text-brand-500 mr-3 mt-1 text-lg">&bull;</span> Designed retail data persistence with MySQL and SQLAlchemy, structuring models for products, categories, warehouses, suppliers, and stock transactions across 1M+ inventory records.</li>
+                                <li class="flex items-start"><span class="text-brand-500 mr-3 mt-1 text-lg">&bull;</span> Improved application performance through Redis caching, reducing repeated database lookups for frequently accessed product and inventory information and improving response time by 25%.</li>
+                                <li class="flex items-start"><span class="text-brand-500 mr-3 mt-1 text-lg">&bull;</span> Orchestrated asynchronous inventory workflows using Celery with RabbitMQ, processing scheduled stock synchronization, bulk catalog updates, and replenishment tasks while reducing processing delays by 35%.</li>
+                                <li class="flex items-start"><span class="text-brand-500 mr-3 mt-1 text-lg">&bull;</span> Containerized retail application services with Docker and Kubernetes, standardizing development and testing environments and supporting consistent deployment of backend components.</li>
+                                <li class="flex items-start"><span class="text-brand-500 mr-3 mt-1 text-lg">&bull;</span> Validated application functionality using PyTest and Mock, testing inventory calculations, product workflows, exception handling, and service behavior to improve release reliability.</li>
+                                <li class="flex items-start"><span class="text-brand-500 mr-3 mt-1 text-lg">&bull;</span> Streamlined application delivery through Jenkins and Git, managing automated builds, source-code integration, version control, and release activities within Agile development cycles.</li>
+                            </ul>
                         </div>
-                        <ul class="list-none space-y-3 text-slate-300 text-sm">
-                            <li class="flex items-start"><span class="text-brand-500 mr-2 mt-0.5">&bull;</span> Engineered retail application modules with Django and Django ORM for product catalog and inventory workflows.</li>
-                            <li class="flex items-start"><span class="text-brand-500 mr-2 mt-0.5">&bull;</span> Orchestrated asynchronous inventory workflows using Celery with RabbitMQ, reducing processing delays by 35%.</li>
-                            <li class="flex items-start"><span class="text-brand-500 mr-2 mt-0.5">&bull;</span> Containerized retail application services with Docker and Kubernetes for standardizing testing and deployment.</li>
-                            <li class="flex items-start"><span class="text-brand-500 mr-2 mt-0.5">&bull;</span> Designed retail data persistence with MySQL and SQLAlchemy across 1M+ inventory records.</li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -208,7 +271,7 @@
 
     <!-- Education & Certifications -->
     <section id="education" class="py-20 border-t border-slate-800 bg-[#0b1121]">
-        <div class="max-w-5xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl font-bold mb-12 text-center text-slate-200">Education & <span class="text-brand-400">Certifications</span></h2>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -216,31 +279,41 @@
                 <div class="space-y-6">
                     <h3 class="text-xl font-semibold text-white mb-6 flex items-center gap-2"><i class="fa-solid fa-graduation-cap text-brand-400"></i> Degrees</h3>
                     <div class="glass-card p-6 rounded-2xl border-l-4 border-l-brand-500">
-                        <h4 class="text-lg font-bold text-slate-100">Master of Computer Science</h4>
-                        <p class="text-brand-400 text-sm mb-2">Lewis University, Romeoville, IL</p>
-                        <p class="text-slate-400 text-sm">August 2023 - May 2025</p>
+                        <div class="card-content">
+                            <h4 class="text-lg font-bold text-slate-100">Master of Computer Science</h4>
+                            <p class="text-brand-400 text-sm mb-2">Lewis University, Romeoville, IL</p>
+                            <p class="text-slate-400 text-sm">August 2023 - May 2025</p>
+                        </div>
                     </div>
                     <div class="glass-card p-6 rounded-2xl border-l-4 border-l-slate-600">
-                        <h4 class="text-lg font-bold text-slate-100">Bachelor of Technology</h4>
-                        <p class="text-slate-300 text-sm mb-2">Jawaharlal Nehru Technological University, India</p>
-                        <p class="text-slate-400 text-sm">2018 - 2022</p>
+                        <div class="card-content">
+                            <h4 class="text-lg font-bold text-slate-100">Bachelor of Technology</h4>
+                            <p class="text-slate-300 text-sm mb-2">Jawaharlal Nehru Technological University, India</p>
+                            <p class="text-slate-400 text-sm">2018 - 2022</p>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Certifications -->
                 <div class="space-y-6">
                     <h3 class="text-xl font-semibold text-white mb-6 flex items-center gap-2"><i class="fa-solid fa-certificate text-accent-400"></i> Certifications</h3>
-                    <div class="glass-card p-6 rounded-2xl hover:border-accent-500/50 transition-colors">
-                        <h4 class="text-md font-bold text-slate-200">Google AI Professional Certificate</h4>
-                        <p class="text-slate-400 text-sm">Google (Coursera)</p>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="card-content">
+                            <h4 class="text-md font-bold text-slate-200">Google AI Professional Certificate</h4>
+                            <p class="text-slate-400 text-sm">Google (Coursera)</p>
+                        </div>
                     </div>
-                    <div class="glass-card p-6 rounded-2xl hover:border-accent-500/50 transition-colors">
-                        <h4 class="text-md font-bold text-slate-200">Microsoft Python Development</h4>
-                        <p class="text-slate-400 text-sm">Microsoft (Coursera)</p>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="card-content">
+                            <h4 class="text-md font-bold text-slate-200">Microsoft Python Development</h4>
+                            <p class="text-slate-400 text-sm">Microsoft (Coursera)</p>
+                        </div>
                     </div>
-                    <div class="glass-card p-6 rounded-2xl hover:border-accent-500/50 transition-colors">
-                        <h4 class="text-md font-bold text-slate-200">Programming in Python</h4>
-                        <p class="text-slate-400 text-sm">Meta (Coursera)</p>
+                    <div class="glass-card p-6 rounded-2xl">
+                        <div class="card-content">
+                            <h4 class="text-md font-bold text-slate-200">Programming in Python</h4>
+                            <p class="text-slate-400 text-sm">Meta (Coursera)</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -253,14 +326,11 @@
         <div class="max-w-3xl mx-auto px-6 relative z-10 text-center">
             <h2 class="text-4xl font-bold mb-6 text-white">Let's Build Something <span class="gradient-text">Intelligent</span></h2>
             <p class="text-slate-300 mb-10 text-lg">
-                I'm currently based in Austin, TX, and actively exploring new opportunities in AI and Backend engineering. Feel free to reach out.
+                I'm actively exploring new opportunities in AI and Backend engineering. Feel free to reach out.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-6">
                 <a href="mailto:shivarajchinthakindi126@gmail.com" class="px-8 py-4 rounded-xl bg-brand-600 text-white font-medium hover:bg-brand-500 transition-all flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(59,130,246,0.3)]">
                     <i class="fa-solid fa-envelope"></i> shivarajchinthakindi126@gmail.com
-                </a>
-                <a href="tel:+15054530849" class="px-8 py-4 rounded-xl glass-card text-white font-medium hover:bg-slate-800 transition-all flex items-center justify-center gap-3">
-                    <i class="fa-solid fa-phone"></i> +1 505-453-0849
                 </a>
             </div>
         </div>
@@ -280,42 +350,54 @@
 
         <!-- Chat Window -->
         <div id="chat-window" class="chatbot-window chatbot-hidden absolute bottom-20 right-0 w-80 sm:w-96 glass-card rounded-2xl overflow-hidden flex flex-col h-[450px] shadow-2xl border border-slate-700">
-            <!-- Header -->
-            <div class="bg-slate-800/80 px-4 py-3 border-b border-slate-700 flex justify-between items-center">
-                <div class="flex items-center gap-2">
-                    <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                    <span class="text-white font-medium text-sm">Shivaraj's AI Assistant</span>
+            <div class="card-content flex flex-col h-full">
+                <!-- Header -->
+                <div class="bg-slate-800/80 px-4 py-3 border-b border-slate-700 flex justify-between items-center">
+                    <div class="flex items-center gap-2">
+                        <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+                        <span class="text-white font-medium text-sm">Shivaraj's AI Assistant</span>
+                    </div>
+                    <button id="chat-close" class="text-slate-400 hover:text-white transition-colors">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
                 </div>
-                <button id="chat-close" class="text-slate-400 hover:text-white transition-colors">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-            
-            <!-- Messages Area -->
-            <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-900/50">
-                <!-- Initial Bot Message -->
-                <div class="flex gap-2">
-                    <div class="w-8 h-8 rounded-full bg-brand-600 flex-shrink-0 flex items-center justify-center text-white text-xs"><i class="fa-solid fa-robot"></i></div>
-                    <div class="bg-slate-800 text-slate-200 text-sm p-3 rounded-2xl rounded-tl-none border border-slate-700">
-                        Hi! I'm Shivaraj's AI assistant. Ask me about his skills, experience at McKesson/Capgemini, education, or contact info!
+                
+                <!-- Messages Area -->
+                <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-900/50">
+                    <div class="flex gap-2">
+                        <div class="w-8 h-8 rounded-full bg-brand-600 flex-shrink-0 flex items-center justify-center text-white text-xs"><i class="fa-solid fa-robot"></i></div>
+                        <div class="bg-slate-800 text-slate-200 text-sm p-3 rounded-2xl rounded-tl-none border border-slate-700">
+                            Hi! I'm Shivaraj's AI assistant. Ask me about his skills, experience at McKesson/Capgemini, education, or contact info!
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Input Area -->
-            <div class="p-3 bg-slate-800/80 border-t border-slate-700">
-                <form id="chat-form" class="flex gap-2">
-                    <input type="text" id="chat-input" placeholder="Type a message..." class="flex-1 bg-slate-900 border border-slate-600 rounded-full px-4 py-2 text-sm text-white focus:outline-none focus:border-brand-500" autocomplete="off">
-                    <button type="submit" class="w-9 h-9 rounded-full bg-brand-600 text-white flex items-center justify-center hover:bg-brand-500 transition-colors">
-                        <i class="fa-solid fa-paper-plane text-xs"></i>
-                    </button>
-                </form>
+                <!-- Input Area -->
+                <div class="p-3 bg-slate-800/80 border-t border-slate-700">
+                    <form id="chat-form" class="flex gap-2">
+                        <input type="text" id="chat-input" placeholder="Type a message..." class="flex-1 bg-slate-900 border border-slate-600 rounded-full px-4 py-2 text-sm text-white focus:outline-none focus:border-brand-500" autocomplete="off">
+                        <button type="submit" class="w-9 h-9 rounded-full bg-brand-600 text-white flex items-center justify-center hover:bg-brand-500 transition-colors">
+                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Chatbot Logic -->
     <script>
+        // --- Dynamic Hover Effect Logic ---
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // --- Chatbot Logic ---
         const chatToggle = document.getElementById('chat-toggle');
         const chatClose = document.getElementById('chat-close');
         const chatWindow = document.getElementById('chat-window');
@@ -323,7 +405,6 @@
         const chatInput = document.getElementById('chat-input');
         const chatMessages = document.getElementById('chat-messages');
 
-        // Toggle Chat Window
         const toggleChat = () => {
             if (chatWindow.classList.contains('chatbot-hidden')) {
                 chatWindow.classList.remove('chatbot-hidden');
@@ -338,7 +419,6 @@
         chatToggle.addEventListener('click', toggleChat);
         chatClose.addEventListener('click', toggleChat);
 
-        // Add Message to UI
         const addMessage = (text, sender) => {
             const div = document.createElement('div');
             div.className = 'flex gap-2 ' + (sender === 'user' ? 'flex-row-reverse' : '');
@@ -360,7 +440,6 @@
             chatMessages.scrollTop = chatMessages.scrollHeight;
         };
 
-        // Smart Bot Logic 
         const getBotResponse = (message) => {
             const msg = message.toLowerCase();
             
@@ -368,13 +447,13 @@
                 return "Shivaraj is an Applied AI Engineer with a strong stack: <b>Python, FastAPI, Django</b> for backend, and heavy AI expertise including <b>LLMs, RAG, LangChain, LangGraph, and Agentic Workflows</b> on GCP & Vertex AI.";
             } 
             else if (msg.includes('experience') || msg.includes('work') || msg.includes('job') || msg.includes('mckesson') || msg.includes('capgemini')) {
-                return "He is currently an <b>Applied AI Engineer at McKesson</b> in Texas, developing LLM and RAG integrations for healthcare policies. Previously, he was a <b>Software Engineer at Capgemini</b> building asynchronous retail microservices with Django and Celery.";
+                return "He is currently an <b>Applied AI Engineer at McKesson</b>, developing LLM and RAG integrations, and Agentic Workflows for healthcare. Previously, he was a <b>Software Engineer at Capgemini</b> building asynchronous retail microservices with Django, Docker, and Celery.";
             }
             else if (msg.includes('education') || msg.includes('school') || msg.includes('degree') || msg.includes('study')) {
-                return "He holds a <b>Master of Computer Science from Lewis University</b> (2023-2025) and a B.Tech from JNTUH. He also has professional certifications from Google, Microsoft, and Meta.";
+                return "He holds a <b>Master of Computer Science from Lewis University</b> and a B.Tech from JNTUH. He also has professional certifications from Google, Microsoft, and Meta.";
             }
             else if (msg.includes('contact') || msg.includes('email') || msg.includes('phone') || msg.includes('hire') || msg.includes('reach')) {
-                return "You can email him directly at <b>shivarajchinthakindi126@gmail.com</b> or call him at <b>+1 505-453-0849</b>. He is currently based in Austin, TX and open to new opportunities!";
+                return "You can email him directly at <b>shivarajchinthakindi126@gmail.com</b>.";
             }
             else if (msg.includes('hi') || msg.includes('hello') || msg.includes('hey')) {
                 return "Hello! How can I help you learn more about Shivaraj's professional background?";
@@ -384,7 +463,6 @@
             }
         };
 
-        // Handle Form Submit
         chatForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const text = chatInput.value.trim();
@@ -393,7 +471,6 @@
             addMessage(text, 'user');
             chatInput.value = '';
 
-            // Simulate typing delay
             setTimeout(() => {
                 const response = getBotResponse(text);
                 addMessage(response, 'bot');
